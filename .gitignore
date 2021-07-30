@@ -1,0 +1,8 @@
+*.env
+*.db
+
+/docs/
+/lib/
+/bin/
+/.shards/
+*.dwarf
