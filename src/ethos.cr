@@ -1,5 +1,6 @@
 require "./ethos/db"
 require "./ethos/api"
+require "./ethos/model"
 
 module Ethos
   VERSION = "0.1.0"

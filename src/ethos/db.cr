@@ -4,6 +4,10 @@ require "db"
 class Ethos::DB
   @@db : ::DB::Database = ::DB.open("sqlite3://./ethos.db")
 
+  def self.query_all(*args, **kwargs)
+    @@db.query_all(*args, **kwargs)
+  end
+
   DB_INIT_SQL = <<-SQL
     CREATE TABLE IF NOT EXISTS tenant (
       uuid TEXT PRIMARY KEY,
