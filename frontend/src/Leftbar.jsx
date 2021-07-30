@@ -13,7 +13,7 @@ function Leftbar() {
 
 	return (
 		<div className="ethos-leftbar">
-			<header>Ethos</header>
+			<header>ethos</header>
 			<nav>
 				<select>
 					{
