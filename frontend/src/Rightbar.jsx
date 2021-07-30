@@ -5,9 +5,7 @@ function Rightbar() {
 		<div className="ethos-rightbar">
 			rightbar
 		</div>
-	)
+	);
 }
 
-
 export default Rightbar;
-

@@ -10,7 +10,7 @@ function TenantProvider({ children }) {
 		setCurrentTenant,
 	}}>
 		{children}
-	</TenantContext.Provider>
+	</TenantContext.Provider>;
 }
 
 export const Providers = ({ children }) =>

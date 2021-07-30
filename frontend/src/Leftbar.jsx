@@ -34,7 +34,7 @@ function Leftbar() {
 				</ul>
 			</nav>
 		</div>
-	)
+	);
 }
 
 export default Leftbar;
