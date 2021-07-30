@@ -4,25 +4,6 @@ require "db"
 class Ethos::DB
   @@db : ::DB::Database = ::DB.open("sqlite3://./ethos.db")
 
-"
-Table document {
-  uuid uuid [pk]
-  name text
-  icon text
-  type text
-  parent_document_uuid uuid [ref: > document.uuid]
-  tenant_uuid uuid [ref: > tenant.uuid]
-}
-
-Table piece {
-  uuid uuid [pk]
-  parent_document_uuid uuid [ref: > document.uuid]
-  parent_piece_uuid uuid [ref: > piece.uuid]
-  type text
-  properties json
-}
-"
-
   DB_INIT_SQL = <<-SQL
     CREATE TABLE IF NOT EXISTS tenant (
       uuid TEXT PRIMARY KEY,
