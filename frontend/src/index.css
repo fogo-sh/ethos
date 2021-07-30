@@ -2,6 +2,7 @@
 
 * {
   font-family: 'Inter', sans-serif;
+	box-sizing: border-box;
 }
 
 html, body {
@@ -23,8 +24,17 @@ code {
     monospace;
 }
 
+hr {
+	border: 1px solid #dcdcdc;
+}
+
 #root {
   height: 100%;
+}
+
+nav ul {
+	padding: 0;
+	list-style-type: none;
 }
 
 .ethos-main {
