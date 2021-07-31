@@ -1,0 +1,18 @@
+schema:
+  - ./ethos.graphql
+  - ./ent.graphql
+
+resolver:
+  layout: follow-schema
+  dir: .
+
+autobind:
+  - github.com/fogo-sh/ethos/ent
+
+models:
+  ID:
+    model:
+      - github.com/fogo-sh/ethos/ent/schema/uuidgql.UUID
+  Node:
+    model:
+      - github.com/fogo-sh/ethos/ent.Noder

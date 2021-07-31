@@ -1,0 +1,55 @@
+interface Node {
+  id: ID!
+}
+
+scalar Time
+
+type Tenant implements Node {
+  id: ID!
+  name: String!
+  icon: String!
+}
+
+scalar Cursor
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: Cursor
+  endCursor: Cursor
+}
+
+type TenantConnection {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  edges: [TenantEdge]
+}
+
+type TenantEdge {
+  node: Tenant
+  cursor: Cursor!
+}
+
+enum OrderDirection {
+  ASC
+  DESC
+}
+
+enum TenantOrderField {
+	NAME
+}
+
+input TenantOrder {
+  direction: OrderDirection!
+  field: TenantOrderField
+}
+
+type Query {
+  tenants(
+		after: Cursor,
+		first: Int,
+		before: Cursor,
+		last: Int,
+		orderBy: TenantOrder,
+	): TenantConnection
+}
