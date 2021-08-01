@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import { Providers } from './context';
-import Leftbar from './Leftbar';
-import Rightbar from './Rightbar';
+import { Providers } from "./context";
+import Leftbar from "./Leftbar";
+import Rightbar from "./Rightbar";
 
 function App() {
 	return (
