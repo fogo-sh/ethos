@@ -18,5 +18,5 @@ export const useApiTenantDocuments = (tenantId) =>
 	useQuery(
 		["tenant", "documents", tenantId],
 		() => getTenantDocuments(tenantId),
-		{ enabled: false }
+		{ enabled: false, keepPreviousData: true }
 	);

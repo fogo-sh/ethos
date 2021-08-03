@@ -47,7 +47,9 @@ function Leftbar() {
 					<Route path="/tenant/:tenant_id">
 						<ul>
 							{documents?.map((document) => (
-								<li key={document.id}>{document.name}</li>
+								<li key={document.id}>
+									{shortnameToEmoji(document.icon)} {document.name}
+								</li>
 							))}
 						</ul>
 					</Route>
