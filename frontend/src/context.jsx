@@ -1,9 +1,24 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useCallback, useContext, useState } from "react";
+import { useHistory, useParams, useRouteMatch } from "react-router-dom";
 
 const TenantContext = createContext();
 
 function TenantProvider({ children }) {
-	const [currentTenant, setCurrentTenant] = useState(TenantContext);
+	const match = useRouteMatch("/tenant/:tenantId");
+	const [currentTenant, setCurrentTenantInner] = useState(
+		match?.params.tenantId
+	);
+
+	const history = useHistory();
+
+	const setCurrentTenant = useCallback((newCurrentTenant) => {
+		setCurrentTenantInner(newCurrentTenant);
+		if (newCurrentTenant === null) {
+			history.push("/");
+		} else {
+			history.push(`/tenant/${newCurrentTenant}`);
+		}
+	});
 
 	return (
 		<TenantContext.Provider

@@ -6,6 +6,11 @@ defmodule EthosWeb.DocumentController do
 
   action_fallback EthosWeb.FallbackController
 
+  def index(conn, %{"tenant_id" => tenant_id}) do
+    document = Data.list_document_by_tenant(Ecto.UUID.dump!(tenant_id))
+    render(conn, "index.json", document: document)
+  end
+
   def index(conn, _params) do
     document = Data.list_document()
     render(conn, "index.json", document: document)

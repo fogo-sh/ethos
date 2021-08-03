@@ -13,7 +13,7 @@ defmodule EthosWeb.Router do
   resources "/tenant", TenantController, only: [:index, :show]
   get "/tenant/:tenant_id/document", DocumentController, :index
 
-  resources "/document", DocumentController, only: [:index, :show]
+  resources "/document", DocumentController, only: [:show]
 
   # Enables LiveDashboard only for development
   #

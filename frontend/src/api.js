@@ -1,30 +1,22 @@
 import { useCallback, useState } from "react";
+import { useQuery } from "react-query";
 
-const API_BASE = "/api";
-const API_TENANT = `${API_BASE}/tenant`;
-const API_DOCUMENT = `${API_BASE}/document`;
+const API_BASE_URL = "/api";
+const API_TENANT_URL = `${API_BASE_URL}/tenant`;
 
-export const useApiTenant = () => {
-	const [tenants, setTenants] = useState(null);
+const generateTenantDocumentsApiUrl = (tenantId) =>
+	`${API_TENANT_URL}/${tenantId}/document/`;
 
-	const fetchTenants = useCallback(() => {
-		fetch(API_TENANT)
-			.then(response => response.json())
-			.then((newTenants) => setTenants(newTenants));
-	}, [setTenants]);
+const getTenants = async () => await (await fetch(API_TENANT_URL)).json();
 
-	return { tenants, fetchTenants };
-};
+export const useApiTenants = () => useQuery("tenants", () => getTenants());
 
-export const useApiDocument = () => {
-	const [documents, setDocuments] = useState(null);
+const getTenantDocuments = async (tenantId) =>
+	await (await fetch(generateTenantDocumentsApiUrl(tenantId))).json();
 
-	const fetchDocuments = useCallback(() => {
-		fetch(API_DOCUMENT)
-			.then(response => response.json())
-			.then((newDocuments) => setDocuments(newDocuments));
-	}, [setDocuments]);
-
-	return { documents, fetchDocuments };
-};
-
+export const useApiTenantDocuments = (tenantId) =>
+	useQuery(
+		["tenant", "documents", tenantId],
+		() => getTenantDocuments(tenantId),
+		{ enabled: false }
+	);

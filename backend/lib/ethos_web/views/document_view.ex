@@ -3,11 +3,11 @@ defmodule EthosWeb.DocumentView do
   alias EthosWeb.DocumentView
 
   def render("index.json", %{document: document}) do
-    %{data: render_many(document, DocumentView, "document.json")}
+    render_many(document, DocumentView, "document.json")
   end
 
   def render("show.json", %{document: document}) do
-    %{data: render_one(document, DocumentView, "document.json")}
+    render_one(document, DocumentView, "document.json")
   end
 
   def render("document.json", %{document: document}) do

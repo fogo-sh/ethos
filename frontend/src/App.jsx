@@ -1,17 +1,25 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import { Providers } from "./context";
 import Leftbar from "./Leftbar";
 import Rightbar from "./Rightbar";
 
+const queryClient = new QueryClient();
+
 function App() {
 	return (
-		<Providers>
-			<div className="ethos-main">
-				<Leftbar />
-				<Rightbar />
-			</div>
-		</Providers>
+		<Router>
+			<QueryClientProvider client={queryClient}>
+				<Providers>
+					<div className="ethos-main">
+						<Leftbar />
+						<Rightbar />
+					</div>
+				</Providers>
+			</QueryClientProvider>
+		</Router>
 	);
 }
 
