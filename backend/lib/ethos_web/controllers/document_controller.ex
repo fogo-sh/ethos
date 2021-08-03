@@ -11,11 +11,12 @@ defmodule EthosWeb.DocumentController do
     render(conn, "index.json", document: document)
   end
 
-  def index(conn, _params) do
-    document = Data.list_document()
-    render(conn, "index.json", document: document)
+  def show(conn, %{"id" => id}) do
+    document = Data.get_document!(Ecto.UUID.dump!(id))
+    render(conn, "show.json", document: document)
   end
 
+  # TODO
   def create(conn, %{"document" => document_params}) do
     with {:ok, %Document{} = document} <- Data.create_document(document_params) do
       conn
@@ -25,11 +26,7 @@ defmodule EthosWeb.DocumentController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    document = Data.get_document!(Ecto.UUID.dump!(id))
-    render(conn, "show.json", document: document)
-  end
-
+  # TODO
   def update(conn, %{"id" => id, "document" => document_params}) do
     document = Data.get_document!(Ecto.UUID.dump!(id))
 
@@ -38,6 +35,7 @@ defmodule EthosWeb.DocumentController do
     end
   end
 
+  # TODO
   def delete(conn, %{"id" => id}) do
     document = Data.get_document!(Ecto.UUID.dump!(id))
 

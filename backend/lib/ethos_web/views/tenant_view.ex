@@ -1,4 +1,6 @@
 defmodule EthosWeb.TenantView do
+  import Ecto.UUID, only: [cast!: 1]
+
   use EthosWeb, :view
   alias EthosWeb.TenantView
 
@@ -12,7 +14,7 @@ defmodule EthosWeb.TenantView do
 
   def render("tenant.json", %{tenant: tenant}) do
     %{
-      id: Ecto.UUID.cast!(tenant.id),
+      id: cast!(tenant.id),
       name: tenant.name,
       icon: tenant.icon
     }

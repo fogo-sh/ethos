@@ -11,6 +11,12 @@ defmodule EthosWeb.TenantController do
     render(conn, "index.json", tenant: tenant)
   end
 
+  def show(conn, %{"id" => id}) do
+    tenant = Data.get_tenant!(Ecto.UUID.dump!(id))
+    render(conn, "show.json", tenant: tenant)
+  end
+
+  # TODO
   def create(conn, %{"tenant" => tenant_params}) do
     with {:ok, %Tenant{} = tenant} <- Data.create_tenant(tenant_params) do
       conn
@@ -20,11 +26,7 @@ defmodule EthosWeb.TenantController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    tenant = Data.get_tenant!(Ecto.UUID.dump!(id))
-    render(conn, "show.json", tenant: tenant)
-  end
-
+  # TODO
   def update(conn, %{"id" => id, "tenant" => tenant_params}) do
     tenant = Data.get_tenant!(Ecto.UUID.dump!(id))
 
@@ -33,6 +35,7 @@ defmodule EthosWeb.TenantController do
     end
   end
 
+  # TODO
   def delete(conn, %{"id" => id}) do
     tenant = Data.get_tenant!(Ecto.UUID.dump!(id))
 

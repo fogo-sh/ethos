@@ -1,4 +1,6 @@
 defmodule EthosWeb.DocumentView do
+  import Ecto.UUID, only: [cast!: 1]
+
   use EthosWeb, :view
   alias EthosWeb.DocumentView
 
@@ -12,11 +14,11 @@ defmodule EthosWeb.DocumentView do
 
   def render("document.json", %{document: document}) do
     %{
-      id: Ecto.UUID.cast!(document.id),
+      id: cast!(document.id),
       name: document.name,
       icon: document.icon,
       type: document.type,
-      tenant_id: Ecto.UUID.cast!(document.tenant_id)
+      tenant_id: cast!(document.tenant_id)
     }
   end
 end

@@ -1,4 +1,3 @@
-import { useCallback, useState } from "react";
 import { useQuery } from "react-query";
 
 const API_BASE_URL = "/api";
