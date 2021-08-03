@@ -86,7 +86,8 @@ header {
 	top: 0;
 	padding: 1rem;
 	background-color: #fffafa;
-	border: 1px solid #dcdcdc;
+	border-left: 1px solid #dcdcdc;
+	border-bottom: 1px solid #dcdcdc;
 }
 
 .ethos-settings input,
