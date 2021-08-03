@@ -6,7 +6,7 @@ const TenantContext = createContext();
 export function TenantProvider({ children }) {
 	const match = useRouteMatch("/tenant/:tenantId");
 	const [currentTenant, setCurrentTenantInner] = useState(
-		match?.params.tenantId
+		match?.params.tenantId ?? null
 	);
 
 	const history = useHistory();

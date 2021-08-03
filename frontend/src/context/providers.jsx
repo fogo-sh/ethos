@@ -1,6 +1,9 @@
 import React from "react";
+import { DocumentProvider } from "./document";
 import { TenantProvider } from "./tenant";
 
 export const Providers = ({ children }) => (
-	<TenantProvider>{children}</TenantProvider>
+	<TenantProvider>
+		<DocumentProvider>{children}</DocumentProvider>
+	</TenantProvider>
 );

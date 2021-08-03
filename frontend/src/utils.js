@@ -8,6 +8,3 @@ for (const emoji in emojilib) {
 
 export const shortnameToEmoji = (shortname) =>
 	shortnameToEmojiMap.get(shortname);
-
-window.shortnameToEmojiMap = shortnameToEmojiMap;
-window.shortnameToEmoji = shortnameToEmoji;
