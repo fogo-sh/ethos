@@ -18,4 +18,20 @@ defmodule Ethos.DataFixtures do
 
     tenant
   end
+
+  @doc """
+  Generate a document.
+  """
+  def document_fixture(attrs \\ %{}) do
+    {:ok, document} =
+      attrs
+      |> Enum.into(%{
+        icon: "some icon",
+        name: "some name",
+        type: "some type"
+      })
+      |> Ethos.Data.create_document()
+
+    document
+  end
 end

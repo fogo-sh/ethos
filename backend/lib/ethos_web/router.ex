@@ -1,7 +1,6 @@
 defmodule EthosWeb.Router do
   use EthosWeb, :router
-
-  alias EthosWeb.TenantController
+  alias EthosWeb.{TenantController, DocumentController}
 
   pipeline :api do
     plug :accepts, ["json"]
@@ -11,7 +10,10 @@ defmodule EthosWeb.Router do
     pipe_through :api
   end
 
-  resources "/tenant", TenantController, except: [:new, :edit]
+  resources "/tenant", TenantController, only: [:index, :show]
+  get "/tenant/:tenant_id/document", DocumentController, :index
+
+  resources "/document", DocumentController, only: [:index, :show]
 
   # Enables LiveDashboard only for development
   #

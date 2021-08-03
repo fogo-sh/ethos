@@ -10,3 +10,6 @@ indent_size = 2
 
 [*.yml]
 indent_style = space
+
+[*.ex]
+indent_style = space

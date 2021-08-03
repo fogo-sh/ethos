@@ -7,6 +7,7 @@ defmodule Ethos.Data.Tenant do
   schema "tenant" do
     field :icon, :string
     field :name, :string
+    has_many :document, Ethos.Data.Document
 
     timestamps()
   end
