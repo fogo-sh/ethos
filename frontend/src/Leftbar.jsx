@@ -33,6 +33,7 @@ function Leftbar() {
 			{!isTenantsLoading && (
 				<nav>
 					<select
+						className="ethos-tenant-select"
 						value={currentTenant === null ? "" : currentTenant}
 						onChange={handleTenantChange}
 					>
@@ -45,13 +46,11 @@ function Leftbar() {
 					</select>
 					<hr />
 					<Route path="/tenant/:tenant_id">
-						<ul>
-							{documents?.map((document) => (
-								<li key={document.id}>
-									{shortnameToEmoji(document.icon)} {document.name}
-								</li>
-							))}
-						</ul>
+						{documents?.map((document) => (
+							<button className="ethos-document-button">
+								{shortnameToEmoji(document.icon)} {document.name}
+							</button>
+						))}
 					</Route>
 				</nav>
 			)}
