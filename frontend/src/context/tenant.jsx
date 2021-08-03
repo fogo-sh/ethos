@@ -1,9 +1,9 @@
 import React, { createContext, useCallback, useContext, useState } from "react";
-import { useHistory, useParams, useRouteMatch } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 const TenantContext = createContext();
 
-function TenantProvider({ children }) {
+export function TenantProvider({ children }) {
 	const match = useRouteMatch("/tenant/:tenantId");
 	const [currentTenant, setCurrentTenantInner] = useState(
 		match?.params.tenantId
@@ -31,9 +31,5 @@ function TenantProvider({ children }) {
 		</TenantContext.Provider>
 	);
 }
-
-export const Providers = ({ children }) => (
-	<TenantProvider>{children}</TenantProvider>
-);
 
 export const useTenants = () => useContext(TenantContext);

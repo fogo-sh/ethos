@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import { Providers } from "./context";
+import { Providers } from "./context/providers";
 import Leftbar from "./Leftbar";
 import Rightbar from "./Rightbar";
 

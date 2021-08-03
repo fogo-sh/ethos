@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect } from "react";
 import { Route } from "react-router-dom";
-import { useApiTenants, useApiTenantDocuments } from "./api";
-import { useTenants } from "./context";
+import { useApiTenantDocuments } from "./api/document";
+import { useApiTenants } from "./api/tenant";
+import { useTenants } from "./context/tenant";
 import { shortnameToEmoji } from "./utils";
 
 function Leftbar() {
