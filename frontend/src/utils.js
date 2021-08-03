@@ -8,3 +8,5 @@ for (const emoji in emojilib) {
 
 export const shortnameToEmoji = (shortname) =>
 	shortnameToEmojiMap.get(shortname);
+
+export const urlToJson = async (url) => await (await fetch(url)).json();

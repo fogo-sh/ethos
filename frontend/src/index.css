@@ -70,3 +70,26 @@ header {
 	margin-bottom: 0.4rem;
 	width: 100%;
 }
+
+.ethos-crumbs {
+	display: inline;
+}
+
+.ethos-settings-button {
+	display: inline;
+	float: right;
+}
+
+.ethos-settings {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 1rem;
+	background-color: #fffafa;
+	border: 1px solid #dcdcdc;
+}
+
+.ethos-settings input,
+.ethos-settings button:not(:last-child) {
+	margin-right: 0.5rem;
+}

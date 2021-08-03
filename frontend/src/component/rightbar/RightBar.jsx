@@ -1,10 +1,10 @@
 import React from "react";
-import Crumbs from "./Crumbs";
+import Header from "./Header";
 
 function RightBar() {
 	return (
 		<div className="ethos-rightbar">
-			<Crumbs />
+			<Header />
 		</div>
 	);
 }

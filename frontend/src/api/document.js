@@ -1,12 +1,13 @@
 import { useQuery } from "react-query";
-import { generateTenantDocumentsApiUrl } from "./api-consts";
+import { useApi } from "../context/api";
+import { urlToJson } from "../utils";
 
-const getTenantDocuments = async (tenantId) =>
-	await (await fetch(generateTenantDocumentsApiUrl(tenantId))).json();
+export const useApiTenantDocuments = (tenantId) => {
+	const { generateTenantDocumentsApiUrl } = useApi();
 
-export const useApiTenantDocuments = (tenantId) =>
-	useQuery(
-		["tenant", "documents", tenantId],
-		() => getTenantDocuments(tenantId),
+	return useQuery(
+		[generateTenantDocumentsApiUrl, "tenant", "documents", tenantId],
+		() => urlToJson(generateTenantDocumentsApiUrl(tenantId)),
 		{ enabled: false, keepPreviousData: true }
 	);
+};

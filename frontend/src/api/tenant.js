@@ -1,6 +1,9 @@
 import { useQuery } from "react-query";
-import { API_TENANT_URL } from "./api-consts";
+import { useApi } from "../context/api";
+import { urlToJson } from "../utils";
 
-const getTenants = async () => await (await fetch(API_TENANT_URL)).json();
+export const useApiTenants = () => {
+	const { tenantUrl } = useApi();
 
-export const useApiTenants = () => useQuery("tenants", () => getTenants());
+	return useQuery([tenantUrl, "tenants"], () => urlToJson(tenantUrl));
+};
