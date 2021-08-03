@@ -1,7 +1,7 @@
 import React from "react";
 
-function Rightbar() {
+function RightBar() {
 	return <div className="ethos-rightbar">rightbar</div>;
 }
 
-export default Rightbar;
+export default RightBar;
