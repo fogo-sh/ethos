@@ -28,7 +28,7 @@ function Crumbs() {
 
 	return (
 		<div className="ethos-crumbs">
-			{tenant} / {document}
+			{tenant} <b>/</b> {document}
 		</div>
 	);
 }
