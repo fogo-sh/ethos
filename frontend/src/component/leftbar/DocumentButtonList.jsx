@@ -10,7 +10,6 @@ function DocumentButtonList() {
 		useApiTenantDocuments(currentTenant);
 
 	useEffect(() => {
-		console.log("useEffect");
 		if (currentTenant) {
 			refetchDocuments();
 		}
